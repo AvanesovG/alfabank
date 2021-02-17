@@ -7,12 +7,18 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @RestController
 public class CurrencyController {
     @Value("${latest.app_id}")
     private String appId;
     @Value("${latest.base}")
     private String base;
+
+
+
     private final LatestService service;
 
     public CurrencyController(LatestService service) {
@@ -24,7 +30,7 @@ public class CurrencyController {
     public String app() {
 
 
-        Currency currencyModel = service.getLatest(appId, base);
+        Currency currencyModel = service.getLatest(appId,base);
         System.out.println(currencyModel.getTimestamp());
         return currencyModel.toString();
 

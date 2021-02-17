@@ -16,4 +16,5 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 public class AlfaBankConfig {
     private String app_id;
     private String base;
+
 }
